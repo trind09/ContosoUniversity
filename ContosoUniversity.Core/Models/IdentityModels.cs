@@ -21,7 +21,7 @@ namespace ContosoUniversity.Core.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("SchoolContext", throwIfV1Schema: false)
         {
         }
 
