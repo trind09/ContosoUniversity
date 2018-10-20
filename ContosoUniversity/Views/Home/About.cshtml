@@ -1,0 +1,61 @@
+﻿@model PagedList.IPagedList<ContosoUniversity.Core.ViewModels.EnrollmentDateGroup>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Student Body Statistics";
+}
+
+@functions{
+    public string GetStudentLink(IEnumerable<string> StudentLastName, IEnumerable<int> StudentID)
+    {
+        var link = "";
+        for (int i = 0; i < StudentLastName.Count(); i++)
+        {
+            link += "<a href='/Student/Details/" + StudentID.ToList()[i] + "'>" + StudentLastName.ToList()[i] + "</a>, ";
+        }
+        return link;
+    }
+}
+
+<h2>Student Body Statistics</h2>
+
+@using (Html.BeginForm("About", "Home", FormMethod.Get))
+{
+    <p>
+        Find by student's last name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
+}
+<table>
+    <tr>
+        <th>
+            @Html.ActionLink("Enrollment Date", "About", new { sortOrder = ViewBag.EnrollmentDateSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Last Name", "About", new { sortOrder = ViewBag.StudentLastNameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.ActionLink("Students", "About", new { sortOrder = ViewBag.StudentCountSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnrollmentDate)
+            </td>
+            <td>
+                @Html.Raw(GetStudentLink(item.StudentLastName, item.StudentID))
+            </td>
+            <td>
+                @item.StudentCount
+            </td>
+        </tr>
+    }
+</table>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("About",
+new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
