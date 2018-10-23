@@ -1,4 +1,6 @@
-﻿namespace ContosoUniversity.Core.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ContosoUniversity.Core.Models
 {
     public enum Grade
     {
@@ -10,6 +12,7 @@
         public int EnrollmentID { get; set; }
         public int CourseID { get; set; }
         public int StudentID { get; set; }
+        [DisplayFormat(NullDisplayText = "No grade")]
         public Grade? Grade { get; set; }
 
         public virtual Course Course { get; set; }

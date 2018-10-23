@@ -90,3 +90,6 @@ D:\Projects\ContosoUniversity\ContosoUniversity.Core\obj\Debug\ContosoUniversity
 D:\Projects\ContosoUniversity\ContosoUniversity.Core\obj\Debug\ContosoUniversity.Core.pdb
 D:\Projects\ContosoUniversity\ContosoUniversity.Core\obj\Debug\ContosoUniversity.Core.Migrations.InitialCreate.resources
 D:\Projects\ContosoUniversity\ContosoUniversity.Core\obj\Debug\ContosoUniversity.Core.csproj.GenerateResource.Cache
+D:\Projects\ContosoUniversity\ContosoUniversity.Core\obj\Debug\ContosoUniversity.Core.Migrations.MaxLengthOnNames.resources
+D:\Projects\ContosoUniversity\ContosoUniversity.Core\obj\Debug\ContosoUniversity.Core.Migrations.ColumnFirstName.resources
+D:\Projects\ContosoUniversity\ContosoUniversity.Core\obj\Debug\ContosoUniversity.Core.Migrations.ComplexDataModel.resources
