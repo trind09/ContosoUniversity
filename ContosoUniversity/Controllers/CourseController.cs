@@ -37,8 +37,7 @@ namespace ContosoUniversity.Controllers
             ViewBag.CurrentFilter = searchString;
 
             //Search
-            var courses = from s in db.Courses
-                          select s;
+            var courses = db.Courses.Include(c => c.Department);
             if (!String.IsNullOrEmpty(searchString))
             {
                 int credit = 0;

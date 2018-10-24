@@ -26,6 +26,9 @@
         <th>
             @Html.ActionLink("Credits", "Index", new { sortOrder = ViewBag.CreditSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
+        <th>
+            Department
+        </th>
         <th></th>
     </tr>
 @foreach (var item in Model) {
@@ -37,9 +40,12 @@
             @Html.DisplayFor(modelItem => item.Credits)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CourseID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CourseID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CourseID })
+            @Html.DisplayFor(modelItem => item.Department.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.CourseID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.CourseID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.CourseID })
         </td>
     </tr>
 }
